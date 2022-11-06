@@ -1,0 +1,18 @@
+{
+    "train_dataset_path":"data/dataset/TimeQuestions/graph_rank/train_25.json",
+    "dev_dataset_path":"data/dataset/TimeQuestions/graph_rank/dev_25.json",
+    "test_dataset_path":null,
+    "lr":5e-5,
+    "eps":1e-8,
+    "batch_size":8,
+    "epochs":15,
+    "save_path":"data/models/graph_rank_tq.pth",
+    "print_steps":10,
+    "save_steps":10,
+    "best_model_path":"data/models/graph_rank_tq_best_neg25_3090_rp_1.pth",
+    "load_model":"pretrained",
+    "load_model_path":"data/models/path_rank_tq_best_neg10_3090.pth",
+    "pretrained_model_path":"/home2/hyli/projects/TemporalKBQA/data/pretrained_models/bert-base-uncased",
+    "gpus":"1",
+    "device":"gpu"
+}

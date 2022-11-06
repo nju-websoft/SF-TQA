@@ -1,0 +1,18 @@
+{
+    "train_dataset_path":"data/dataset/TempQuestions/path_rank/train_10.json",
+    "dev_dataset_path":"data/dataset/TempQuestions/path_rank/dev_10.json",
+    "test_dataset_path":null,
+    "lr":5e-5,
+    "eps":1e-8,
+    "batch_size":128,
+    "epochs":5,
+    "save_path":"data/models/path_rank_teq.pth",
+    "print_steps":10,
+    "save_steps":10,
+    "best_model_path":"data/models/path_rank_teq_best_neg10_3090_rp.pth",
+    "load_model":"pretrained",
+    "load_model_path":null,
+    "pretrained_model_path":"/home2/hyli/projects/TemporalKBQA/data/pretrained_models/bert-base-uncased",
+    "gpus":"0",
+    "device":"gpu"
+}
