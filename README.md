@@ -8,7 +8,38 @@ https://aclanthology.org/2022.emnlp-main.122/
 
 ## Code
 
-The code structure is as follows:
+The code is structured as follows:
+
+- evaluate
+  - `evaluate.py` to evaluate predict results with answers.
+- query
+  - `querygraph.py` provides the structure and basic methods of *query graph*, including adding, deleting and changing nodes and edges on the graph, and provides serialization (for output and to sparql) methods.
+  - `freebase_element.py` and `wikidata_element.py` provides the basic structure of SF-TCons Event, Property, TemporalEntity classes on two knowledge bases
+  - `freebase_template.py` and `wikidata_template.py` provides each structure in SF-TCons on corresponding knowledge bases
+- rank
+  - `freebase_tag.py` and `wikidata_tag.py` provides methods for serializing query graphs on two knowledge bases, mainly for ranking
+  - `multi_query_cache_prepare.py` Multi-threaded cache generation for path ranking and graph ranking
+  - `graph_rank_train.py` and `path_rank_train.py` and the corresponding config files are for training path ranking and graph ranking models
+  - `model.py` and `ranker.py` provide model details
+- run
+  - `annotate_time.py` adds a default base time to each problem in the dataset
+  - `prepare_teq.py` and `prepare_tq.py` converts the annotations of datasets into a structured form
+  - `cache_statistic.py` calculates the upper limit of the dataset when the best result is obtained for each problem in the cache
+  - `check_cache_sparql.py` to check if there are any problems in the cache with skewed results due to instability of the query site
+  - `evaluate_on_other_system_on_TEQ.py` to get Table 3 of the paper
+  - `evaluate_metric.py` is used to calculate the dataset metrics according to the results of the real-time run
+  - `evaluate_metric_by_cache.py` is run by running the prepared cache (because of the large number of datasets, the normal run one question at a time takes a huge amount of time, also affected by the query network, in addition to the uncertainty of hit1, so we run a version of the test set results cache with fixed results as the final generation of the system) (All the metrics are also calculated based on this cache) to get Table 3 and Table 4 of the run results in the paper
+  - `evaluate_metric_by_cache_for_ablation.py` is used to get the results of the ablation experiments in the paper Table 5
+- semantic
+  - `semantic.py` provides the individual elements of the temporal element annotation
+- solve
+  - `solve.py` provides TemporalQuestionSolver class for generating query graphs, predicting results, serialization methods and recording results for each problem, with the solve method being the main method
+  - `generate.py` records the annotation information and knowledge base of each question, and calls the query graph generator to generate query graphs.
+  - `build.py` implements the query graph generation, determines whether each frame is available according to the annotation information of each problem, and calls the grounding method of each frame.
+  - `frame.py` provides the existence conditions of each frame and the grounding method calls.
+- In utils are the specific tools and methods of the two knowledge bases
+
+## 中文说明
 
 - evaluate
   - evaluate.py to evaluate predict results with answers.
