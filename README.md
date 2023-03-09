@@ -1,6 +1,11 @@
-# TimeQA
+# SF-TQA
 
 ## Description
+
+Code for `Semantic Framework based Query Generation for Temporal Question Answering over Knowledge Graphs`
+
+https://aclanthology.org/2022.emnlp-main.122/
+
 ## Code
 
 The code structure is as follows:
